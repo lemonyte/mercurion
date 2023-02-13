@@ -1,0 +1,15 @@
+# Spacefile Docs: https://deta.space/docs/en/reference/spacefile
+v: 0
+icon: ./icon.png
+app_name: Mercurion
+micros:
+  # - name: mercurion
+  #   src: ./
+  #   engine: nuxt
+
+  - name: proto
+    src: ./proto
+    engine: python3.9
+    primary: true
+    public_routes:
+      - "/api/receive"

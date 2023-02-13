@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block topbar %}
+{{ super() }}
+<h2>Messages</h2>
+{% endblock %}
+
+{% block content %}
+<div class="message-list">
+  {% for message in messages %}
+  {% set key = message["key"] %}
+  <a id="{{ key }}" class="message-item" onclick="showMessage('{{ key }}')"
+    data-read="{{ message['read'] | string | lower }}">
+    <span class="sender">{{ message["sender"] }}</span>
+    <span class="subject">{{ message["subject"] }}</span>
+    <!-- <span class="timestamp">{{ message["timestamp"] }}</span> -->
+  </a>
+  {% endfor %}
+  {% if messages|length == 0 %}
+  <h3>No messages</h3>
+  {% endif %}
+</div>
+<div class="message-container">
+  <div id="header">
+    <span id="subject">Subject</span>
+    <span id="timestamp">Timestamp</span>
+    <details>
+      <div>
+        <span>From:&nbsp;</span>
+        <span class="value" id="sender"></span>
+      </div>
+      <div>
+        <span>To:&nbsp;</span>
+        <span class="value" id="recipient"></span>
+      </div>
+      <div>
+        <span>Origin:&nbsp;</span>
+        <span class="value" id="origin"></span>
+      </div>
+      <div>
+        <span>Destination:&nbsp;</span>
+        <span class="value" id="destination"></span>
+      </div>
+    </details>
+  </div>
+  <p id="content">Content</p>
+</div>
+{% endblock %}

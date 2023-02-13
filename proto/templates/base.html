@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <title>{% block title %}Mercurion{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    <link rel="stylesheet" href="/static/style.css" />
+    {% endblock %}
+  </head>
+
+  <body>
+    <div class="topbar">
+      {% block topbar %}
+      <a href="/">
+        <h1>Mercurion</h1>
+      </a>
+      {% endblock %}
+    </div>
+
+    <div class="main-content">
+      <div class="sidebar">
+        {% block sidebar %}
+        <a href="/inbox">Inbox</a>
+        <a href="/sent">Sent</a>
+        <a href="/compose">Compose</a>
+        <!-- <a href="/contacts">Contacts</a> -->
+        <!-- <a href="/settings">Settings</a> -->
+        {% endblock %}
+      </div>
+  
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <footer>
+      {% block footer %}
+      {% endblock %}
+    </footer>
+
+    {% block scripts %}
+    <script src="/static/index.js"></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block topbar %}
+{{ super() }}
+<h2>Compose</h2>
+{% endblock %}
+
+{% block content %}
+<div class="compose-container">
+  <input id="subject" placeholder="Subject">
+  <div style="display: flex; flex-direction: row; width: -moz-available;">
+    <input id="sender" placeholder="Your Name">
+    <input id="recipient" placeholder="Recipient Name">
+    <input id="destination" placeholder="Destination Hostname">
+  </div>
+  <textarea id="content" placeholder="Content"></textarea>
+  <button id="send-button" class="button" onclick="sendMessage()">Send</button>
+</div>
+{% endblock %}

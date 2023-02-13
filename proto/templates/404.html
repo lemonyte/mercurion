@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mercurion | 404 - Not Found
+{% endblock %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+  <h1 style="font-family: monospace;">404 - Not Found</h1>
+  <img id="image" style="max-height: 500px; max-width: 500px; height: auto; width: auto;">
+</div>
+<!-- <img src="https://httpwaifus.deta.dev/api/404" style="max-height: 600px; max-width: 600px; height: auto; width: auto;"> -->
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+  fetch("https://api.waifu.pics/sfw/waifu")
+    .then((response) => { return response.json(); })
+    .then((data) => { document.getElementById("image").src = data.url; });
+</script>
+{% endblock %}
