@@ -13,7 +13,13 @@ async function sendMessage() {
   }
 
   destination = destination.replace("http://", "").replace("https://", "").replace(/\/+$/, "");
-  for (const host of [origin, destination]) {
+  const hosts = [origin];
+
+  if (destination !== origin) {
+    hosts.push(destination);
+  }
+
+  for (const host of hosts) {
     try {
       const response = await fetch(`https://${host}/api/receive`, {
         method: "POST",
