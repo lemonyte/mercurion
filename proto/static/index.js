@@ -4,7 +4,7 @@ async function sendMessage() {
   const sender = document.getElementById("sender").value;
   const recipient = document.getElementById("recipient").value;
   const origin = window.location.hostname;
-  const destination = document.getElementById("destination").value;
+  let destination = document.getElementById("destination").value;
   const timestamp = Date.now();
 
   if (!subject || !content || !sender || !recipient || !destination) {
@@ -12,6 +12,7 @@ async function sendMessage() {
     return;
   }
 
+  destination = destination.replace("http://", "").replace("https://", "").replace(/\/+$/, "");
   for (const host of [origin, destination]) {
     try {
       const response = await fetch(`https://${host}/api/receive`, {
