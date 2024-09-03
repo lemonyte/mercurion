@@ -1,5 +1,8 @@
 # Mercurion
 
+> [!IMPORTANT]  
+> This project was created for Deta Space, a service which no longer exists as of October 17th, 2024.
+
 **This proof-of-concept is currently in development, so expect bugs and unfinished features.**
 
 Mercurion is a message client that allows you to communicate with Deta users, similar to how email works.
